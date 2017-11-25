@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 15:37:11 by gpop              #+#    #+#             */
-/*   Updated: 2017/11/25 17:38:34 by gpop             ###   ########.fr       */
+/*   Created: 2017/11/25 16:46:38 by gpop              #+#    #+#             */
+/*   Updated: 2017/11/25 17:59:02 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strdup(const char *s1)
 {
-	int len;
+	char *s2;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	s2 = (char*)malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (s2 == NULL)
+		return (NULL);
+	ft_strcpy(s2, s1);
+	return (s2);
 }

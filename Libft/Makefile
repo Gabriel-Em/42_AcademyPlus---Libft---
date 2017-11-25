@@ -6,14 +6,22 @@
 #    By: gpop <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/25 02:05:19 by gpop              #+#    #+#              #
-#    Updated: 2017/11/25 15:51:29 by gpop             ###   ########.fr        #
+#    Updated: 2017/11/25 19:43:22 by gpop             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SOURCE_DIR = srcs/
 HEADER_DIR = includes/
-FUNCTIONS = ft_strlen
+FUNCTIONS = ft_memset \
+			ft_bzero \
+			ft_memcpy \
+			ft_strlen \
+			ft_strdup \
+			ft_strcpy \
+			ft_strncpy \
+			ft_strcat \
+			ft_strncat
 FLAGS = -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
