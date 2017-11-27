@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 19:49:23 by gpop              #+#    #+#             */
-/*   Updated: 2017/11/27 20:26:47 by gpop             ###   ########.fr       */
+/*   Created: 2017/11/27 22:38:30 by gpop              #+#    #+#             */
+/*   Updated: 2017/11/27 23:08:03 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strstr(const char *big, const char *little)
 {
-	unsigned char	*tmp;
-	unsigned char	*dst_ptr;
-	unsigned char	*src_ptr;
-	size_t			i;
+	int len_little;
+	int len_big;
+	int i;
+	int j;
 
-	dst_ptr = (unsigned char*)dest;
-	src_ptr = (unsigned char*)src;
-	tmp = (unsigned char*)malloc(n * sizeof(unsigned char));
+	if (*little == '\0')
+		return ((char*)big);
+	len_little = ft_strlen(little);
+	len_big = ft_strlen(big);
 	i = 0;
-	while (i < n)
+	while (i <= len_big - len_little)
 	{
-		tmp[i] = src_ptr[i];
+		j = 0;
+		while (j < len_little && big[i + j] == little[j])
+			j++;
+		if (j == len_little)
+			return ((char*)(big + i));
 		i++;
 	}
-	i = 0;
-	while (i < n)
-	{
-		dst_ptr[i] = tmp[i];
-		i++;
-	}
-	free(tmp);
-	return (dest);
+	return (NULL);
 }

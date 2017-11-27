@@ -498,6 +498,135 @@ void test_ft_strlcat()
 	printf("ft_strlcat PASSED\n");
 }
 
+void test_ft_strchr()
+{
+	char *x23 = "abcdeffedcba";
+	char *ft;
+	char *or;
+
+	// we try to locate 'f' in x23
+
+	ft = ft_strchr(x23, 102);
+	or = strchr(x23, 102);
+
+	if (ft != or || *ft != 'f')
+	{
+		printf("ft_strchr FAILED\n");
+		return ;
+	}
+
+	// we try to locate '\0' in x23
+
+	ft = ft_strchr(x23, 0);
+	or = strchr(x23, 0);
+
+	if (ft != or || *ft != '\0')
+	{
+		printf("ft_strchr FAILED\n");
+		return ;
+	}
+
+	// we try to locate 'K' in x23
+
+	ft = ft_strchr(x23, 75);
+	or = strchr(x23, 75);
+
+	if (ft != or)
+	{
+		printf("ft_strchr FAILED\n");
+		return ;
+	}
+	printf("ft_strchr PASSED\n");
+}
+
+void test_ft_strrchr()
+{
+	char *x23 = "abcdeffedcba";
+	char *ft;
+	char *or;
+
+	// we try to locate the last occurence of 'f' in x23
+	// a pointer to that occurence should be returned
+
+	ft = ft_strrchr(x23, 102);
+	or = strrchr(x23, 102);
+
+	if (ft != or || *ft != 'f')
+	{
+		printf("ft_strrchr FAILED\n");
+		return ;
+	}
+
+	// we try to locate '\0' in x23
+	// a pointer to '\0' at the end of x23 should be returned
+	
+	ft = ft_strrchr(x23, 0);
+	or = strrchr(x23, 0);
+
+	if (ft != or || *ft != '\0')
+	{
+		printf("ft_strrchr FAILED\n");
+		return ;
+	}
+
+	// we try to locate 'K' in x23
+	// since 'K' is not in x23, NULL should be returned
+	
+	ft = ft_strrchr(x23, 75);
+	or = strrchr(x23, 75);
+
+	if (ft != or)
+	{
+		printf("ft_strrchr FAILED\n");
+		return ;
+	}
+	printf("ft_strrchr PASSED\n");
+}
+
+void test_ft_strstr()
+{
+	char *x23 = "abcdefghijkabcdefghijk";
+	char *first = "";
+	char *second = "def";
+	char *third = "xyz";
+
+	char *ft;
+	char *or;
+
+	// since first is an empty string a pointer to the begining of x23 should be returned
+	
+	ft = ft_strstr(x23, first);
+	or = strstr(x23, first);
+
+	if (ft != or)
+	{
+		printf("ft_strstr FAILED\n");
+		return ;
+	}
+
+	// a pointer to the first occurence of "def" in x23 should be returned
+
+	ft = ft_strstr(x23, second);
+	or = strstr(x23, second);
+
+	if (ft != or)
+	{
+		printf("ft_strstr FAILED\n");
+		return ;
+	}
+
+	// NULL should be returned
+
+	ft = ft_strstr(x23, third);
+	or = strstr(x23, third);
+
+	if (ft != or)
+	{
+		printf("ft_strstr FAILED\n");
+		return ;
+	}
+	printf("ft_strstr PASSED\n");
+}
 
 int main()
 {
@@ -515,6 +644,9 @@ int main()
 	test_ft_strcat();
 	test_ft_strncat();
 	test_ft_strlcat();
+	test_ft_strchr();
+	test_ft_strrchr();
+	test_ft_strstr();
 
 	return (0);
 }

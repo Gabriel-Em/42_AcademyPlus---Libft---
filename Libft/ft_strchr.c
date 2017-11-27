@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 19:49:23 by gpop              #+#    #+#             */
-/*   Updated: 2017/11/27 20:26:47 by gpop             ###   ########.fr       */
+/*   Created: 2017/11/27 21:30:38 by gpop              #+#    #+#             */
+/*   Updated: 2017/11/27 21:53:48 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	*tmp;
-	unsigned char	*dst_ptr;
-	unsigned char	*src_ptr;
-	size_t			i;
+	int i;
 
-	dst_ptr = (unsigned char*)dest;
-	src_ptr = (unsigned char*)src;
-	tmp = (unsigned char*)malloc(n * sizeof(unsigned char));
 	i = 0;
-	while (i < n)
-	{
-		tmp[i] = src_ptr[i];
+	while (s[i] != '\0' && s[i] != (char)c)
 		i++;
-	}
-	i = 0;
-	while (i < n)
-	{
-		dst_ptr[i] = tmp[i];
-		i++;
-	}
-	free(tmp);
-	return (dest);
+	if (s[i] == (char)c)
+		return ((char*)(s + i));
+	return (NULL);
 }
