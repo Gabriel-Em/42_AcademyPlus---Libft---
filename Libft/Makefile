@@ -11,17 +11,22 @@
 # **************************************************************************** #
 
 NAME = libft.a
-SOURCE_DIR = srcs/
-HEADER_DIR = includes/
 FUNCTIONS = ft_memset \
 			ft_bzero \
 			ft_memcpy \
+			ft_memccpy \
+			ft_memmove \
+			ft_memchr \
+			ft_memcmp \
 			ft_strlen \
 			ft_strdup \
 			ft_strcpy \
 			ft_strncpy \
 			ft_strcat \
-			ft_strncat
+			ft_strncat \
+			ft_strlcat
+OBJ = $(patsubst %,%.o,$(FUNCTIONS))
+SRC = $(patsubst %,%.c,$(FUNCTIONS))
 FLAGS = -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
@@ -29,11 +34,11 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	gcc -I $(HEADER_DIR) $(FLAGS) -c $(patsubst %,$(SOURCE_DIR)%.c,$(FUNCTIONS))
-	ar rcs $(NAME) $(patsubst %,%.o,$(FUNCTIONS))
+	gcc -I . $(FLAGS) -c $(SRC)
+	ar rcs $(NAME) $(OBJ)
 
 clean:
-	@rm -f $(patsubst %,%.o,$(FUNCTIONS))
+	@rm -f $(OBJ)
 
 fclean: clean
 	@rm -f $(NAME)
