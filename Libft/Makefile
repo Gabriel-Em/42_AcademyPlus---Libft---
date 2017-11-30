@@ -27,7 +27,18 @@ FUNCTIONS = ft_memset \
 			ft_strlcat \
 			ft_strchr \
 			ft_strrchr \
-			ft_strstr
+			ft_strstr \
+			ft_strnstr \
+			ft_strcmp \
+			ft_strncmp \
+			ft_atoi \
+			ft_isalpha \
+			ft_isdigit \
+			ft_isalnum \
+			ft_isascii \
+			ft_isprint \
+			ft_toupper \
+			ft_tolower
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 FLAGS = -Wall -Wextra -Werror

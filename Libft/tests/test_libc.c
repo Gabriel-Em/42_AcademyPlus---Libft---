@@ -1,6 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <bsd/string.h>
+#include <ctype.h>
 
 void test_ft_memset()
 {
@@ -628,6 +629,234 @@ void test_ft_strstr()
 	printf("ft_strstr PASSED\n");
 }
 
+void test_ft_strnstr()
+{
+	char *x23 = "abcdefghijkabcdefghijk";
+	char *first = "";
+	char *second = "def";
+
+	char *ft;
+	char *or;
+
+	// since first is an empty string a pointer to the begining of x23 should be returned
+	
+	ft = ft_strnstr(x23, first, 7);
+	or = strnstr(x23, first, 7);
+
+	if (ft != or)
+	{
+		printf("ft_strnstr FAILED\n");
+		return ;
+	}
+
+	// a pointer to the first occurence of "def" in x23 should be returned
+
+	ft = ft_strnstr(x23, second, 6);
+	or = strnstr(x23, second, 6);
+
+	if (ft != or)
+	{
+		printf("ft_strnstr FAILED\n");
+		return ;
+	}
+
+	// NULL should be returned
+
+	ft = ft_strnstr(x23, second, 5);
+	or = strnstr(x23, second, 5);
+
+	if (ft != or)
+	{
+		printf("ft_strnstr FAILED\n");
+		return ;
+	}
+	printf("ft_strnstr PASSED\n");
+}
+
+void test_ft_strcmp()
+{
+	char *s1 = "abc";
+	char *s2 = "aba";
+	char *s3 = "abz";
+	char *s4 = "ab";
+	char *s5 = "abcd";
+	char *s6 = "abç";
+
+	if (ft_strcmp(s1, s1) != strcmp(s1, s1) ||
+		ft_strcmp(s1, s2) != strcmp (s1, s2) ||
+		ft_strcmp(s1, s3) != strcmp (s1, s3) ||
+		ft_strcmp(s1, s4) != strcmp (s1, s4) ||
+		ft_strcmp(s1, s5) != strcmp (s1, s5) ||
+		ft_strcmp(s1, s6) != strcmp (s1, s6))
+	{
+		printf("ft_strcmp FAILED\n");
+		return ;
+	}
+
+	printf("ft_strcmp PASSED\n");
+}
+
+void test_ft_strncmp()
+{
+	char *s1 = "abc";
+	char *s2 = "aba";
+	char *s3 = "abz";
+	char *s4 = "ab";
+	char *s23 = "abç";
+
+	if (ft_strncmp(s1, s2, 2) != strncmp(s1, s2, 2) ||
+		ft_strncmp(s1, s2, 3) != strncmp(s1, s2, 3) ||
+		ft_strncmp(s1, s3, 3) != strncmp(s1, s3, 3) ||
+		ft_strncmp(s1, s4, 3) != strncmp(s1, s4, 3) ||
+		ft_strncmp(s4, s1, 3) != strncmp(s4, s1, 3) ||
+		ft_strncmp(s1, s23, 23) != strncmp(s1, s23, 23))
+	{
+		printf("ft_strncmp FAILED\n");
+		return ;
+	}
+
+	printf("ft_strncmp PASSED\n");
+}
+
+void test_ft_atoi()
+{
+	char *t1 = "123";
+	char *t2 = "-123";
+	char *t3 = "123a123";
+	char *t4 = "-000123a123";
+	char *t5 = "+000123\n123";
+	char *t6 = "+-123\r123";
+	char *t7 = "-+123 123";
+	char *t8 = " \n\t\f\r\v123/123";
+	char *t9 = " \n\t\f\r\v-123/123";
+	char *t10 = "            2147483647_max_int";
+	char *t23 = "            -2147483648_min_int";
+	char *t66 = "     +99999999999999";
+	char *t32 = "     -99999999999999";
+	char *t99 = "`99";
+
+	if (ft_atoi(t1) != atoi(t1) ||
+		ft_atoi(t2) != atoi(t2) ||
+		ft_atoi(t3) != atoi(t3) ||
+		ft_atoi(t4) != atoi(t4) ||
+		ft_atoi(t5) != atoi(t5) ||
+		ft_atoi(t6) != atoi(t6) ||
+		ft_atoi(t7) != atoi(t7) ||
+		ft_atoi(t8) != atoi(t8) ||
+		ft_atoi(t9) != atoi(t9) ||
+		ft_atoi(t10) != atoi(t10) ||
+		ft_atoi(t23) != atoi(t23) ||
+		ft_atoi(t32) != atoi(t32) ||
+		ft_atoi(t66) != atoi(t66) ||
+		ft_atoi(t99) != atoi(t99))
+	{
+		printf("ft_atoi FAILED\n");
+		return ;
+	}
+	printf("ft_atoi PASSED\n");
+}
+
+void	test_ft_isalpha()
+{
+	if (!ft_isalpha('a') || !isalpha('a') ||
+		!ft_isalpha('Z') || !isalpha('Z') ||
+		ft_isalpha('7') || isalpha('7') ||
+		ft_isalpha('\\') || isalpha('\\') ||
+		ft_isalpha(127) || isalpha(127))
+	{
+		printf("ft_isalpha FAILED\n");
+		return ;
+	}
+	printf("ft_isalpha PASSED\n");
+}
+
+void	test_ft_isdigit()
+{
+	if (!ft_isdigit('0') || !isdigit('0') ||
+		!ft_isdigit('9') || !isdigit('9') ||
+		ft_isdigit(' ') || isdigit(' ') ||
+		ft_isdigit('\\') || isdigit('\\'))
+	{
+		printf("ft_isdigit FAILED\n");
+		return ;
+	}
+	printf("ft_isdigit PASSED\n");
+}
+
+void	test_ft_isalnum()
+{
+	if (!ft_isalnum('a') || !isalnum('a') ||
+		!ft_isalnum('Z') || !isalnum('Z') ||
+		!ft_isalnum('0') || !isalnum('0') ||
+		!ft_isalnum('9') || !isalnum('9') ||
+		ft_isalnum(' ') || isalnum(' ') ||
+		ft_isalnum('=') || isalnum('=') ||
+		ft_isalnum('\\') || isalnum('\\') ||
+		ft_isalnum(127) || isalnum(127))
+	{
+		printf("ft_isalnum FAILED\n");
+		return ;
+	}
+	printf("ft_isalnum PASSED\n");
+}
+
+void	test_ft_isascii()
+{
+	if (!ft_isascii(0) || !isascii(0) ||
+		!ft_isascii(64) || !isascii(64) ||
+		!ft_isascii(127) || !isascii(127) ||
+		ft_isascii(128) || isascii(128) ||
+		ft_isascii(-1) || isascii(-1))
+	{
+		printf("ft_isascii FAILED\n");
+		return ;
+	}
+	printf("ft_isascii PASSED\n");
+}
+
+void	test_ft_isprint()
+{
+	if (!ft_isprint(32) || !isprint(32) ||
+		!ft_isprint(126) || !isprint(126) ||
+		ft_isprint(31) || isprint(31) ||
+		ft_isprint(127) || isprint(127))
+	{
+		printf("ft_isprint FAILED\n");
+		return ;
+	}
+	printf("ft_isprint PASSED\n");
+}
+
+void	test_ft_toupper()
+{
+	if (ft_toupper('a') != toupper('a') ||
+		ft_toupper('z') != toupper('z') ||
+		ft_toupper('K') != toupper('K') ||
+		ft_toupper(0) != toupper(0) ||
+		ft_toupper(127) != toupper(127) ||
+		ft_toupper(-999) != toupper(-999))
+	{
+		printf("ft_toupper FAILED\n");
+		return ;
+	}
+	printf("ft_toupper PASSED\n");
+}
+
+void	test_ft_tolower()
+{
+	if (ft_tolower('A') != tolower('A') ||
+		ft_tolower('Z') != tolower('Z') ||
+		ft_tolower('k') != tolower('k') ||
+		ft_tolower(0) != tolower(0) ||
+		ft_tolower(127) != tolower(127) ||
+		ft_tolower(-999) != tolower(-999))
+	{
+		printf("ft_tolower FAILED\n");
+		return ;
+	}
+	printf("ft_tolower PASSED\n");
+}
+
 int main()
 {
 	test_ft_memset();
@@ -647,6 +876,17 @@ int main()
 	test_ft_strchr();
 	test_ft_strrchr();
 	test_ft_strstr();
+	test_ft_strnstr();
+	test_ft_strcmp();
+	test_ft_strncmp();
+	test_ft_atoi();
+	test_ft_isalpha();
+	test_ft_isdigit();
+	test_ft_isalnum();
+	test_ft_isascii();
+	test_ft_isprint();
+	test_ft_toupper();
+	test_ft_tolower();
 
 	return (0);
 }
