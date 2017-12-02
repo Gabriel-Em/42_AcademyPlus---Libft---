@@ -6,7 +6,7 @@
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:10:43 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/01 20:10:47 by gpop             ###   ########.fr       */
+/*   Updated: 2017/12/02 01:45:00 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,19 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t len_little;
-	size_t limit;
 	size_t i;
-	size_t j;
 
-	if (*little == '\0')
-		return ((char*)big);
 	len_little = ft_strlen(little);
-	limit = ft_strlen(big);
-	if (len < limit)
-		limit = len;
+	if (len_little == '\0')
+		return ((char*)big);
+	if (len_little > len)
+		len_little = len;
 	i = 0;
-	while (i <= limit - len_little)
+	while (i <= len - len_little)
 	{
-		j = 0;
-		while (j < len_little && big[i + j] == little[j])
-			j++;
-		if (j == len_little)
-			return ((char*)(big + i));
+		if (big[i] == little[0])
+			if (!ft_strncmp(big + i, little, len_little))
+				return ((char*)(big + i));
 		i++;
 	}
 	return (NULL);

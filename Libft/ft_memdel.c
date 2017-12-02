@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 18:58:45 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/01 20:03:41 by gpop             ###   ########.fr       */
+/*   Created: 2017/12/01 21:04:15 by gpop              #+#    #+#             */
+/*   Updated: 2017/12/01 21:11:30 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_memdel(void **ap)
 {
-	unsigned char	*p;
-	size_t			i;
-
-	p = (unsigned char*)b;
-	i = 0;
-	while (i < len)
-		p[i++] = c;
-	return (b);
+	if (ap != NULL && *ap != NULL)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

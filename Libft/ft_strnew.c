@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 18:58:45 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/01 20:03:41 by gpop             ###   ########.fr       */
+/*   Created: 2017/12/01 21:14:27 by gpop              #+#    #+#             */
+/*   Updated: 2017/12/01 21:19:09 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strnew(size_t size)
 {
-	unsigned char	*p;
-	size_t			i;
+	void *str;
 
-	p = (unsigned char*)b;
-	i = 0;
-	while (i < len)
-		p[i++] = c;
-	return (b);
+	str = malloc((size + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	ft_bzero(str, size + 1);
+	return ((char*)str);
 }

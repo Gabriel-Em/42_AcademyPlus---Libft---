@@ -38,7 +38,11 @@ FUNCTIONS = ft_memset \
 			ft_isascii \
 			ft_isprint \
 			ft_toupper \
-			ft_tolower
+			ft_tolower \
+			ft_memalloc \
+			ft_memdel \
+			ft_strnew \
+			ft_strdel
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 FLAGS = -Wall -Wextra -Werror
