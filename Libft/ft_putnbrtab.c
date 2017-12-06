@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbrtab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 22:23:17 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/05 22:23:26 by gpop             ###   ########.fr       */
+/*   Created: 2017/12/06 21:57:31 by gpop              #+#    #+#             */
+/*   Updated: 2017/12/06 22:12:50 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+void	ft_putnbrtab(int *tab, size_t len)
 {
-	if (s != NULL)
+	size_t	i;
+
+	if (tab != NULL)
 	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
+		i = 0;
+		while (i < len)
+		{
+			ft_putnbr(tab[i++]);
+			if (i < len)
+				ft_putchar(' ');
+		}
 	}
 }

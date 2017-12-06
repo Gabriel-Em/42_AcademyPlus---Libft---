@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 22:32:10 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/05 22:32:30 by gpop             ###   ########.fr       */
+/*   Created: 2017/12/05 22:37:02 by gpop              #+#    #+#             */
+/*   Updated: 2017/12/05 22:37:15 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char	*str;
-	size_t	i;
+	t_list	*node;
+	t_list	*new_list;
+	t_list	*temp;
 
-	if (s == NULL)
+	if (lst == NULL)
 		return (NULL);
-	str = (char*)malloc((len + 1) * sizeof(char));
-	if (str == NULL)
+	temp = f(lst);
+	new_list = ft_lstnew(temp->content, temp->content_size);
+	if (new_list == NULL)
 		return (NULL);
-	i = 0;
-	while (i < len)
+	node = new_list;
+	while (lst->next)
 	{
-		str[i] = s[start + i];
-		i++;
+		lst = lst->next;
+		temp = f(lst);
+		node->next = ft_lstnew(temp->content, temp->content_size);
+		if (node->next == NULL)
+			return (NULL);
+		node = node->next;
 	}
-	str[i] = '\0';
-	return (str);
+	return (new_list);
 }

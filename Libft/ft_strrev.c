@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 22:23:17 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/05 22:23:26 by gpop             ###   ########.fr       */
+/*   Created: 2017/12/06 00:00:34 by gpop              #+#    #+#             */
+/*   Updated: 2017/12/06 22:31:00 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+char	*ft_strrev(char *str)
 {
-	if (s != NULL)
+	size_t	i;
+	size_t	len;
+	char	temp;
+
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	len = ft_strlen(str);
+	while (i < len / 2)
 	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
+		temp = str[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
+		i++;
 	}
+	return (str);
 }

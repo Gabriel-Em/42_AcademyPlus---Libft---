@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 22:23:17 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/05 22:23:26 by gpop             ###   ########.fr       */
+/*   Created: 2017/12/05 22:09:08 by gpop              #+#    #+#             */
+/*   Updated: 2017/12/05 22:09:09 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if (s != NULL)
+	t_list	*node;
+	t_list	*next;
+
+	node = *alst;
+	while (node)
 	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
+		next = node->next;
+		del(node->content, node->content_size);
+		free(node);
+		node = next;
 	}
+	*alst = NULL;
 }

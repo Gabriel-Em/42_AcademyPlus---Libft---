@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 22:32:10 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/05 22:32:30 by gpop             ###   ########.fr       */
+/*   Created: 2017/12/05 22:08:04 by gpop              #+#    #+#             */
+/*   Updated: 2017/12/05 22:08:10 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char	*str;
-	size_t	i;
+	t_list	*list;
 
-	if (s == NULL)
+	list = (t_list*)malloc(sizeof(t_list));
+	if (list == NULL)
 		return (NULL);
-	str = (char*)malloc((len + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	if (content == NULL)
 	{
-		str[i] = s[start + i];
-		i++;
+		list->content = NULL;
+		list->content_size = 0;
 	}
-	str[i] = '\0';
-	return (str);
+	else
+	{
+		list->content = malloc(content_size);
+		if (list->content == NULL)
+			return (NULL);
+		ft_memmove(list->content, content, content_size);
+		list->content_size = content_size;
+	}
+	list->next = NULL;
+	return (list);
 }

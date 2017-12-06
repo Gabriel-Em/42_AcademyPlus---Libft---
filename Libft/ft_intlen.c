@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 22:23:17 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/05 22:23:26 by gpop             ###   ########.fr       */
+/*   Created: 2017/12/06 21:43:04 by gpop              #+#    #+#             */
+/*   Updated: 2017/12/06 21:44:36 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putendl_fd(char const *s, int fd)
+int	ft_intlen(int nb)
 {
-	if (s != NULL)
+	int c;
+
+	if (nb == 0)
+		return (1);
+	c = 0;
+	while (nb != 0)
 	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
+		nb /= 10;
+		c++;
 	}
+	return (c);
 }

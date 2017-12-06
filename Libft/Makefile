@@ -6,7 +6,7 @@
 #    By: gpop <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/25 02:05:19 by gpop              #+#    #+#              #
-#    Updated: 2017/11/25 19:43:22 by gpop             ###   ########.fr        #
+#    Updated: 2017/12/06 22:31:41 by gpop             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,26 +43,44 @@ FUNCTIONS = ft_memset \
 			ft_memdel \
 			ft_strnew \
 			ft_strdel \
-            ft_strclr \
-            ft_striter \
-            ft_striteri \
-            ft_strmap \
-            ft_strmapi \
-            ft_strequ \
-            ft_strnequ \
-            ft_strsub \
-            ft_strjoin \
-            ft_strtrim \
-            ft_strsplit \
-            ft_itoa \
-            ft_putchar \
-            ft_putstr \
-            ft_putendl \
-            ft_putnbr \
-            ft_putchar_fd \
-            ft_putstr_fd \
-            ft_putendl_fd \
-            ft_putnbr_fd
+			ft_strclr \
+			ft_striter \
+			ft_striteri \
+			ft_strmap \
+			ft_strmapi \
+			ft_strequ \
+			ft_strnequ \
+			ft_strsub \
+			ft_strjoin \
+			ft_strtrim \
+			ft_strsplit \
+			ft_itoa \
+			ft_putchar \
+			ft_putstr \
+			ft_putendl \
+			ft_putnbr \
+			ft_putchar_fd \
+			ft_putstr_fd \
+			ft_putendl_fd \
+			ft_putnbr_fd \
+			ft_lstnew \
+			ft_lstdelone \
+			ft_lstdel \
+			ft_lstadd \
+			ft_lstiter \
+			ft_lstmap \
+			ft_swap \
+			ft_strrev \
+			ft_quicksort \
+			ft_pow \
+			ft_min \
+			ft_max \
+			ft_isspace \
+			ft_isupper \
+			ft_islower \
+			ft_intlen \
+			ft_putnbrtab \
+			ft_word_count
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 FLAGS = -Wall -Wextra -Werror
