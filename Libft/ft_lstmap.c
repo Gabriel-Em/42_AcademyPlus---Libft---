@@ -41,21 +41,13 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	{
 		lst = lst->next;
 		temp = f(lst);
-		node->next =
-			ft_lstnew(temp->content,
-					temp->content_size);
-		if
-			(node->next
-			 == NULL)
-			{
-				cleanup(new_list);
-				return
-					(NULL);
-			}
-		node
-			=
-			node->next;
+		node->next = ft_lstnew(temp->content, temp->content_size);
+		if (node->next == NULL)
+		{
+			cleanup(new_list);
+			return (NULL);
+		}
+		node = node->next;
 	}
-	return
-		(new_list);
+	return (new_list);
 }
