@@ -83,14 +83,14 @@ FUNCTIONS = ft_memset \
 			ft_word_count
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME):
-	gcc -I . $(FLAGS) -c $(SRC)
+	gcc -I . $(CFLAGS) -c $(SRC)
 	ar rcs $(NAME) $(OBJ)
 
 clean:

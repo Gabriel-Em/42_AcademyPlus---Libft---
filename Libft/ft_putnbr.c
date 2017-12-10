@@ -19,7 +19,7 @@ void	ft_putnbr(int n)
 
 	last_digit = n % 10;
 	n /= 10;
-	if (last_digit < 0)
+	if (last_digit < 0 || n < 0)
 	{
 		ft_putchar('-');
 		n = -n;

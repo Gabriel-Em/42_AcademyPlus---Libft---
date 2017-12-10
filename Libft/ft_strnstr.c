@@ -15,15 +15,13 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t len_little;
-	size_t i;
+	int		i;
 
 	len_little = ft_strlen(little);
 	if (len_little == '\0')
 		return ((char*)big);
-	if (len_little > len)
-		len_little = len;
 	i = 0;
-	while (i <= len - len_little)
+	while (big[i] != '\0' && i <= (int)(len - len_little))
 	{
 		if (big[i] == little[0])
 			if (!ft_strncmp(big + i, little, len_little))
