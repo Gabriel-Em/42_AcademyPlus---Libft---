@@ -6,7 +6,7 @@
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:10:43 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/02 01:45:00 by gpop             ###   ########.fr       */
+/*   Updated: 2017/12/12 03:55:24 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t len_little;
+	size_t	len_little;
 	int		i;
 
 	len_little = ft_strlen(little);
