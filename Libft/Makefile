@@ -6,7 +6,7 @@
 #    By: gpop <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/25 02:05:19 by gpop              #+#    #+#              #
-#    Updated: 2017/12/11 18:36:52 by gpop             ###   ########.fr        #
+#    Updated: 2017/12/14 01:48:35 by gpop             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ FUNCTIONS = ft_memset \
 			ft_islower \
 			ft_intlen \
 			ft_putnbrtab \
-			ft_word_count
+			ft_word_count \
+			ft_lstappend
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 CFLAGS = -Wall -Wextra -Werror
@@ -88,6 +89,7 @@ CFLAGS = -Wall -Wextra -Werror
 .PHONY: all clean fclean re
 
 all: $(NAME)
+	@true
 
 $(NAME):
 	gcc -I . $(CFLAGS) -c $(SRC)
