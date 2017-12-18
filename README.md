@@ -81,6 +81,7 @@ For more details regarding the project see Subject.pdf.
 - ft_intlen
 - ft_putnbrtab
 - ft_word_count
+- ft_lstappend
 
 # How to use
  
