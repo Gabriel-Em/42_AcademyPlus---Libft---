@@ -82,6 +82,8 @@ For more details regarding the project see Subject.pdf.
 - ft_putnbrtab
 - ft_word_count
 - ft_lstappend
+- ft_strshorten
+- ft_strcutuntil
 
 # How to use
  
