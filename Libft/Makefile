@@ -6,7 +6,7 @@
 #    By: gpop <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/25 02:05:19 by gpop              #+#    #+#              #
-#    Updated: 2017/12/20 14:26:15 by gpop             ###   ########.fr        #
+#    Updated: 2017/12/24 19:07:07 by gpop             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,8 @@ FUNCTIONS = ft_memset \
 			ft_putnbrtab \
 			ft_word_count \
 			ft_lstappend \
-			ft_strshorten
+			ft_strshorten \
+			ft_strcutuntil
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 CFLAGS = -Wall -Wextra -Werror

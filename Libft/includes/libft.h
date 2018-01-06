@@ -6,7 +6,7 @@
 /*   By: gpop <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 14:56:31 by gpop              #+#    #+#             */
-/*   Updated: 2017/12/20 14:25:00 by gpop             ###   ########.fr       */
+/*   Updated: 2017/12/25 20:08:58 by gpop             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int					ft_intlen(int nb);
 void				ft_putnbrtab(int *tab, size_t len);
 int					ft_word_count(char *str);
 void				ft_lstappend(t_list **alst, t_list *new);
-char				*ft_strshorten(char *s, int start, int len);
+char				*ft_strshorten(char **s, int start, int len);
+char				*ft_strcutuntil(char **str, int c);
 
 #endif
