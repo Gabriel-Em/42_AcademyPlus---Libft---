@@ -84,6 +84,7 @@ For more details regarding the project see Subject.pdf.
 - ft_lstappend
 - ft_strshorten
 - ft_strcutuntil
+- get_next_line
 
 # How to use
  
