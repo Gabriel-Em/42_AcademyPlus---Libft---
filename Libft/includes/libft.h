@@ -16,6 +16,24 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+
+# define BUFF_SIZE 2409
+
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
+
+typedef	struct		s_stack_el
+{
+	char			*str;
+	int				fd;
+}					t_stack_el;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -70,14 +88,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
-
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
@@ -99,5 +109,6 @@ int					ft_word_count(char *str);
 void				ft_lstappend(t_list **alst, t_list *new);
 char				*ft_strshorten(char **s, int start, int len);
 char				*ft_strcutuntil(char **str, int c);
+int					get_next_line(int const fd, char **line);
 
 #endif

@@ -83,7 +83,8 @@ FUNCTIONS = ft_memset \
 			ft_word_count \
 			ft_lstappend \
 			ft_strshorten \
-			ft_strcutuntil
+			ft_strcutuntil \
+			get_next_line
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 CFLAGS = -Wall -Wextra -Werror
