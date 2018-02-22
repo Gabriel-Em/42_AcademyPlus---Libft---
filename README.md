@@ -85,6 +85,11 @@ For more details regarding the project see Subject.pdf.
 - ft_strshorten
 - ft_strcutuntil
 - get_next_line
+- ft_abs
+- ft_lstlen
+- ft_putnbr_w.c
+- ft_putstr_w.c
+- ft_swapstr.c
 
 # How to use
  
