@@ -84,7 +84,12 @@ FUNCTIONS = ft_memset \
 			ft_lstappend \
 			ft_strshorten \
 			ft_strcutuntil \
-			get_next_line
+			get_next_line \
+			ft_swapstr \
+			ft_lstlen \
+			ft_putstr_w \
+			ft_putnbr_w \
+			ft_abs
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 CFLAGS = -Wall -Wextra -Werror

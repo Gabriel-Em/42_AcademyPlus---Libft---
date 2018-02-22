@@ -110,5 +110,10 @@ void				ft_lstappend(t_list **alst, t_list *new);
 char				*ft_strshorten(char **s, int start, int len);
 char				*ft_strcutuntil(char **str, int c);
 int					get_next_line(int const fd, char **line);
+void				ft_swapstr(char **str1, char **str2);
+int					ft_lstlen(t_list *list);
+void				ft_putstr_w(char *str, int width, int left_aligned);
+void				ft_putnbr_w(int nbr, int width);
+long long			ft_abs(long long nbr);
 
 #endif
